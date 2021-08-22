@@ -1174,7 +1174,7 @@ def visualize_boxes_and_labels_on_image_array(
   """
   # Create a display string (and color) for every box location, group any boxes
   # that correspond to the same location.
-  ##box_to_display_str_map = collections.defaultdict(list)
+  box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
   box_to_instance_masks_map = {}
   box_to_instance_boundaries_map = {}
@@ -1219,6 +1219,7 @@ def visualize_boxes_and_labels_on_image_array(
             display_str = 'ID {}'.format(track_ids[i])
           else:
             display_str = '{}: ID {}'.format(display_str, track_ids[i])
+        print(display_str)
         box_to_display_str_map[box].append(display_str)
         if agnostic_mode:
           box_to_color_map[box] = 'DarkOrange'
